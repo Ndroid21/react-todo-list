@@ -1,9 +1,10 @@
 import React from 'react';
+import TodoInput from './components/TodoInput';
 
 function App() {
   return (
     <div>
-      Todo List
+      <TodoInput />
     </div>
   );
 }
