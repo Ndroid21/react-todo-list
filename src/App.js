@@ -32,6 +32,23 @@ class App extends Component {
             id: uuid()
         });
     }
+    handleItemEdit = (id) => {
+        const filteredItems = this.state.items.filter(item => item.id !== id);
+        const editedItem = this.state.items.find(item => item.id === id);
+
+        this.setState({
+            items: filteredItems,
+            item: editedItem.title,
+            id: id
+        });
+    }
+    handleItemDelete = (id) => {
+        const filteredItems = this.state.items.filter(item => item.id !== id);
+
+        this.setState({
+            items: filteredItems
+        });
+    }
     handleClearList = () => {
         this.setState({
             items: []
@@ -48,6 +65,8 @@ class App extends Component {
                         handleSubmit={this.handleSubmit} />
                     <TodoItemList 
                         items={this.state.items}
+                        handleItemEdit={this.handleItemEdit}
+                        handleItemDelete={this.handleItemDelete}
                         handleClearList={this.handleClearList} />
                 </div>
             </div>

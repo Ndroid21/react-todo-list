@@ -3,11 +3,16 @@ import TodoItem from './TodoItem';
 
 export default class TodoItemList extends Component {
     render() {
-        const { items, handleClearList } = this.props;
+        const { items, handleItemEdit, handleItemDelete, handleClearList } = this.props;
         return (
             <div className="mt-5">
                 { items.map(item => { 
-                    return <TodoItem key={item.id} title={item.title} />    
+                    return <TodoItem 
+                        key={item.id}
+                        id={item.id} 
+                        title={item.title} 
+                        handleItemEdit={handleItemEdit}
+                        handleItemDelete={handleItemDelete} />    
                 }) }
                 
                 <div className="container mt-3">
